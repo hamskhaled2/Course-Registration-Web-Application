@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<Student_information_system_2.Models.Student>
+
+<table class="display-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date Of Birth</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Major</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+                <td>@student.dob</td>
+                <td>@student.phone</td>
+                <td>@student.email</td>
+                <td>@student.password</td>
+                <td>@student.major</td>
+                <td>
+                    <a class="btn btn-dark" asp-controller="Student" asp-action="Edit" asp-route-id="@student.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<button class="btn btn-dark" onclick="window.location.href='@Url.Action("Add", "Student")'">Add Student</button>

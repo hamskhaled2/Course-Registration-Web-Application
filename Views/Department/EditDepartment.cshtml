@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Student_information_system_2.Models.Department
+
+<h1>Edit Department</h1>
+
+@if (Model is null)
+{
+    <p>Department With This ID Doesn't Exist'</p>
+}
+
+else
+{
+    <form method="post">
+
+        <div class="mt-3">
+            <label class="label-form">ID</label>
+            <input type="text" class="form-control" asp-for="Id" readonly />
+        </div>
+
+        <div class="mt-3">
+            <label class="label-form">Name</label>
+            <input type="text" class="form-control" asp-for="Name" />
+        </div>
+
+        <div class="mt-3">
+            <label class="label-form">Description</label>
+            <input type="text" class="form-control" asp-for="Description" />
+        </div>
+        <div class="mt-3">
+            <button type="submit" class="btn btn-dark">Save</button>
+            <button type="submit" class="btn btn-danger ms-3" asp-action="DeleteDepartment" asp-controller="Department">Delete</button>
+
+        </div>
+
+    </form>
+}
